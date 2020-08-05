@@ -14,6 +14,7 @@
 
 //NAV
 
+let html = document.querySelector('html')
 let allLinks = document.querySelectorAll('a')
 
 let topTitle = document.querySelector('h1')
@@ -23,10 +24,17 @@ let welcome = document.querySelector('h2')
 let letsGo = document.querySelector('.text-content')
 let letsGoTitle = letsGo.querySelector('h2')
 
+let destination = document.querySelector('.destination')
+let destinationBtn = destination.querySelector('.btn')
 
+let advAwaits = document.querySelector('.text-content:nth-of-type(2)')
+let advAwaitsTitle = advAwaits.querySelector('h2')
 
+let pick = document.querySelector('.content-destination')
+let pickTitle = pick.querySelector('h2')
 
-
+let islandGetaway = document.querySelector('.destination:nth-of-type(3)')
+let islandGetawayTitle = islandGetaway.querySelector('h4')
 
 //FUNCTIONS
 
@@ -59,7 +67,42 @@ function typo(event){
 
 welcome.addEventListener('click', typo)
 
-letsGo.addEventListener('keydown', function(event){
-    letsGo.className = 'off'
+letsGoTitle.addEventListener('copy', function(event){
+    letsGoTitle.textContent = 'HEY DO NOT DO THAT'
+    letsGoTitle.style.background = 'Black'
+    letsGoTitle.style.color = 'Red'
 })
 
+
+html.addEventListener('paste', function(event){
+    html.style.color = 'red'
+    html.textContent = 'WEE WOO YOU BROKE COPYRIGHT LAWS'
+})
+
+
+destinationBtn.addEventListener('mouseleave',function(event){
+    destinationBtn.textContent = 'No Come Back!';
+    setTimeout(function() {
+       destinationBtn.textContent = 'Sign Me Up!';
+    }, 650);
+  }, false);
+
+html.addEventListener('keydown', function(event){
+    advAwaitsTitle.textContent = 'You cannot type here.'
+})
+
+html.addEventListener('keyup', function(event){
+    advAwaitsTitle.textContent = 'Adventure Awaits'
+})
+
+pickTitle.addEventListener('cut', function(event){
+    pickTitle.textContent = "Listen cutting is the same as copying "
+})
+
+islandGetawayTitle.addEventListener('contextmenu', function(event){
+    islandGetawayTitle.textContent = 'Nothing behind here'
+    event.preventDefault()
+    setTimeout(() => {
+        islandGetawayTitle.textContent = 'Island Getaway'
+    }, 1000);
+})
